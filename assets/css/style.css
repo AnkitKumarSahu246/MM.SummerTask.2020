@@ -1,0 +1,26 @@
+.welcome-center{
+	text-align: center;
+	margin-top: 20%;
+}
+.pick{
+	text-align: center;
+}
+.truncate{
+	width :450px;
+	white-space:nowrap;
+	overflow: hidden;
+	text-overflow:ellipsis;
+}
+
+.log{
+	margin-top:20%; 
+	margin-left:30%;
+	margin-right:30%;
+}
+
+.logprop{
+	text-align: center;
+	margin-top:15%; 
+	margin-bottom:-19%; 
+	text-decoration: underline;
+}
