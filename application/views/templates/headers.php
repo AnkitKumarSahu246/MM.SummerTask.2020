@@ -1,8 +1,14 @@
 <html>
   <head>
-    <title><?= $title ?></title>
-    <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/style.css">
+    <title><?= $title ?></title>    
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="<?php echo base_url();?>assets/css/styles.css">
+    <style type="text/css">
+      body {
+        background-image: url('<?php echo base_url(); ?>assets/images/pages/darkShades.jpg');
+        background-size: cover;
+      }
+    </style>
   </head>
   <body>
   	<div class = 'container'>
@@ -31,6 +37,7 @@
               if($this->session->userdata('id')){
             ?>
             <!-- <li><a></a></li> -->
+            <li><a href="<?php echo site_url('/admin/index'); ?>" >Dashboard</a></li>
             <li><a><img alt = 'img' class = 'img-circle' src="<?php echo base_url(); ?>assets/images/posts/<?php echo $this->session->userdata('profilephoto');?>" height = '20' width = '20'><?php echo $this->session->userdata('firstname');?></a></li>
             <li><a href="<?= base_url('admin/logout');?>" >Logout</a></li>
             <?php
@@ -41,7 +48,7 @@
               if(! $this->session->userdata('id')){
             ?>
             <li><a href="<?php echo site_url('/admin/login'); ?>">Admin Login</a></li>
-            <li><a href="#">User Login</a></li>
+            <li><a href="<?php echo site_url('/posts/login'); ?>">User Login</a></li>
             <?php
               }
             ?>

@@ -1,22 +1,22 @@
-     	<div>
-     		<div class = 'col-lg-12' style="background-color:#bfbfbf">
+     	<div">
+     		<div class = 'col-lg-12' style="background-color:white;">
      			<div class = 'col-lg-6'>
      				<div class = 'col-lg-4'>
-     					<p>Lifestyle</p>
-     					<p>World</p>
-     					<p>India</p>
-     					<p>Economy</p>
-     					<p>Defence</p>
+     					<a href="<?php echo site_url('posts/category/Lifestyle'); ?>"><p>Lifestyle</p></a>
+     					<a href="<?php echo site_url('posts/category/world'); ?>"><p>World</p></a>
+     					<a href="<?php echo site_url('posts/category/india'); ?>"><p>India</p></a>
+     					<a href="<?php echo site_url('posts/category/Economy'); ?>"><p>Economy</p></a>
+     					<a href="<?php echo site_url('posts/category/Defence'); ?>"><p>Defence</p></a>
      				</div>
      				<div class = 'col-lg-4'>
-     					<p>Sports</p>
-     					<p>Technology</p>
-     					<p>Politics</p>
-     					<p>Coronavirus</p>
-     					<p>Entertainment</p>
+     					<a href="<?php echo site_url('posts/category/Sports'); ?>"><p>Sports</p></a>
+     					<a href="<?php echo site_url('posts/category/Tech'); ?>"><p>Technology</p></a>
+     					<a href="<?php echo site_url('posts/category/Politics'); ?>"><p>Politics</p></a>
+     					<a href="<?php echo site_url('posts/category/CoronaVirus'); ?>"><p>Coronavirus</p></a>
+     					<a href="<?php echo site_url('posts/category/Entertainment'); ?>"><p>Entertainment</p></a>
      				</div>
      				<div class = 'col-lg-4'>
-     					<p>Business</p>
+     					<a href="<?php echo site_url('posts/category/Business'); ?>"><p>Business</p></a>
      				</div>
      			</div>
      			<div class = 'col-lg-4' text align = 'center'>
@@ -39,8 +39,9 @@
      			</div>
      		</div>
 		</div>
-          <script type = "text/javascript" src="https://code.jquery.com/jquery-3.4.1.js"></script>
-          <script type = "text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+          <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+          <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
      </div>
      </body>
 </html>

@@ -8,6 +8,9 @@ class Admin extends My_controller {
         // }
 
        public function login(){
+            if($this->session->userdata('id')){
+                return redirect('admin/index');
+            }
             $this->load->library('form_validation');
             $this->form_validation->set_rules('username','UserName','required'); //parameters are name of the login forms
             $this->form_validation->set_rules('password','PassWord','required|min_length[5]|max_length[25]');
@@ -37,18 +40,38 @@ class Admin extends My_controller {
             }
        }
        public function logout(){
-        echo 'logout';
-        $this->session->unset_userdata('id');
-        $this->session->unset_userdata('firstname');
-        return redirect('admin/login');
+            echo 'logout';
+            $this->session->unset_userdata('id');
+            $this->session->unset_userdata('firstname');
+            return redirect('admin/login');
        }
        public function index(){
-                    if(! $this->session->userdata('id'))
-                        return redirect('admin/login');
-                    $data['title'] = 'index';
-                    $this->load->view('templates/headers',$data);
-                    $this->load->view('admin/index');
-                    $this->load->view('templates/footers');
+            if(! $this->session->userdata('id'))
+                return redirect('admin/login');
+            $data['title'] = 'Dashboard';
+            $this->load->view('templates/headers',$data);
+            $this->load->view('admin/index');
+            $this->load->view('templates/footers');
+       }
+       public function add(){
+            if(! $this->session->userdata('id'))
+                return redirect('admin/login');
+            $title = $this->input->post('title');
+            $body1 = $this->input->post('body1');
+            $body2 = $this->input->post('body2');
+            $img1 = $this->input->post('img1');
+            $img2 = $this->input->post('img2');
+            $category = $this->input->post('category');
+            $replaced = array(' ','!','"','#','$','%','&',"'",'(',')','*','+',',','-','.','/',':',';','<','=','>','?','@','[','\\',',',']','^','_','`','{','|','}','~');
+            $slug = str_replace($replaced,'-',htmlspecialchars_decode($title));
+            if($title){
+                $this->load->model('admin_model');
+                $res = $this->admin_model->AddArticle($title,$body1,$body2,$img1,$img2,$category,$slug);
+            }
+            $data['title'] = 'Add Article';
+            $this->load->view('templates/headers',$data);
+            $this->load->view('admin/add');
+            $this->load->view('templates/footers');
        }
 }
 

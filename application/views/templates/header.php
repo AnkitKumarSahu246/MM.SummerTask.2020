@@ -1,11 +1,15 @@
 <html>
         <head>
-                <title><?= $title ?></title>
-                <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/style.css">
-                <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-                <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
-                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
-                <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+              <title><?= $title ?></title>
+              <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+              <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+              <link rel="stylesheet" href="<?php echo base_url();?>assets/css/styles.css">
+              <style type="text/css">
+                body {
+                  background-image: url('<?php echo base_url(); ?>assets/images/pages/darkShades.jpg');
+                  background-size: cover;
+                }
+              </style>
         </head>
         <body>
 <div class = 'container'>
@@ -26,8 +30,7 @@
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                       <ul class="nav navbar-nav">
                         <li class="active"><a href="<?php echo site_url('posts/home'); ?>">Home <span class="sr-only">(current)</span></a></li>
-                        <li><a href="<?php echo site_url('/about'); ?>">About</a></li>
-                        <li><a href="#">Forum</a></li>
+                        <li><a href="<?php echo site_url('posts/forum'); ?>">Forum</a></li>
                        </ul>
                       
                       <ul class="nav navbar-nav navbar-right">
@@ -36,35 +39,44 @@
                           <ul class="dropdown-menu">
                             <table>
                             <td  class = 'col-lg-4'>
-                              <li><a href="#">Technology</a></li>
+                              <li><a href="<?php echo site_url('posts/category/Tech'); ?>">Technology</a></li>
                               <li role="separator" class="divider"></li>
-                              <li><a href="#">Business</a></li>
+                              <li><a href="<?php echo site_url('posts/category/Business'); ?>">Business</a></li>
                               <li role="separator" class="divider"></li>
-                              <li><a href="#">Sports</a></li>
+                              <li><a href="<?php echo site_url('posts/category/Sports'); ?>">Sports</a></li>
                               <li role="separator" class="divider"></li>
-                              <li><a href="#">Lifestyle</a></li>
+                              <li><a href="<?php echo site_url('posts/category/Lifestyle'); ?>">Lifestyle</a></li>
                               <li role="separator" class="divider"></li>
-                              <li><a href="#">World</a></li>
+                              <li><a href="<?php echo site_url('posts/category/world'); ?>">World</a></li>
                             </td>
                             <td  class = 'col-lg-4'>
-                              <li><a href="#">Politics</a></li>
+                              <li><a href="<?php echo site_url('posts/category/Politics'); ?>">Politics</a></li>
                               <li role="separator" class="divider"></li>
-                              <li><a href="#">Coronavirus</a></li>
+                              <li><a href="<?php echo site_url('posts/category/CoronaVirus'); ?>">Coronavirus</a></li>
                               <li role="separator" class="divider"></li>
-                              <li><a href="#">Entertainment</a></li>
+                              <li><a href="<?php echo site_url('posts/category/Entertainment'); ?>">Entertainment</a></li>
                               <li role="separator" class="divider"></li>
-                              <li><a href="#">Defence</a></li>
+                              <li><a href="<?php echo site_url('posts/category/Defence'); ?>">Defence</a></li>
                               <li role="separator" class="divider"></li>
-                              <li><a href="#">Economy</a></li>
+                              <li><a href="<?php echo site_url('posts/category/Economy'); ?>">Economy</a></li>
                             </td>
                             <td  class = 'col-lg-4'>
-                              <li><a href="#">India</a></li>
+                              <li><a href="<?php echo site_url('posts/category/India'); ?>">India</a></li>
                             </td>
                             </table>
                           </ul>
                         </li>
-                        <li><a href="#">Signup</a></li>
-                        <li><a href="#">Signin</a></li>
+                        <!-- <li><a href="#">Signup</a></li> -->
+                        <!-- <li><a href="#">Signin</a></li> -->
+                        <?php
+                              if($this->session->userdata('ids')){
+                         ?>
+                             <!-- <li><a></a></li> -->
+                             <li><a><img alt = 'img' class = 'img-circle' src="<?php echo base_url(); ?>assets/images/posts/<?php echo $this->session->userdata('profilephotos');?>" height = '20' width = '20'><?php echo $this->session->userdata('firstnames');?></a></li>
+                             <li><a href="<?= base_url('posts/logout');?>" >Logout</a></li>
+                        <?php
+                              }
+                        ?>
                       </ul>
                       
                     </div><!-- /.navbar-collapse -->
